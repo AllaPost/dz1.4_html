@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alla Postnikova</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .rounded-img {
+        width: 55%;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        padding: 0.6em;
+        margin-bottom: 1em;
+        box-shadow: blue 0px 0px 0px 2px inset,
+          rgb(63, 61, 61) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px,
+          rgb(63, 61, 61) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px,
+          rgb(63, 61, 61) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px,
+          rgb(63, 61, 61) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+      }
+
+      body {
+        background: #3f3e3e;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .content {
+        flex: 1;
+      }
+
+      .fw-light {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .text-muted-white {
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      footer {
+        background-color: #3f3e3e;
+        color: rgb(102, 98, 98);
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      footer p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand p-0" href="/">
+          <img src="/img/AP.png" alt="Logo" width="60" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="website.html">Favorite website</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container text-center my-5">
+      <div class="row">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <img class="rounded-img" src="/img/img1.jpg" alt="fox with books" />
+          <main>
+            <h1 class="fw-light">Alla Postnikova</h1>
+            <p class="lead text-muted-white">
+              Я являюсь веб-разработчиком со знаниями и опытом работы с HTML,
+              CSS и JavaScript. <br />
+              Моя цель — создавать для Вас современные, адаптивные и
+              функциональные веб-сайты, которые предлагают пользователям
+              интуитивно понятный и приятный интерфейс.
+            </p>
+          </main>
+          <a
+            href="https://vk.com/al.sh96"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            My Website
+          </a>
+          <a
+            href="https://www.instagram.com/postnkova_alla?igsh=MTdoaHUxanc2NjR0aQ%3D%3D&utm_source=qr"
+            target="_blank"
+            class="btn btn-secondary"
+          >
+            My #censorship
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2024 Alla Postnikova. Все права защищены</p>
+      <p>Контакты: expromt24@gmail.com | +7(976) 568-34-54</p>
+    </footer>
+  </body>
+</html>
