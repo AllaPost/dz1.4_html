@@ -34,6 +34,7 @@ body {
   grid-template-rows: var(--size) auto var(--size);
   background-color: var(--bg-color-body);
   color: var(--color-font);
+  overflow: hidden;
 }
 
 a {
