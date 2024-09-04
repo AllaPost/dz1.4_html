@@ -24,6 +24,8 @@ body {
   font-style: normal;
 
   height: 100svh;
+  width: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -34,7 +36,6 @@ body {
   grid-template-rows: var(--size) auto var(--size);
   background-color: var(--bg-color-body);
   color: var(--color-font);
-  overflow: hidden;
 }
 
 a {

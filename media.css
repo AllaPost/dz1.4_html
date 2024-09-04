@@ -47,6 +47,10 @@
       max-height: calc(100% - 19vw);
       max-width: calc(100% - 2vw);
     }
+
+    .footer {
+      font-size: 20px;
+    }
   }
 }
 
