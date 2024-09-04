@@ -1,0 +1,151 @@
+@media (orientation: portrait) {
+  @media (max-width: 680px) {
+    .explorer__info {
+      grid-template-columns: auto;
+      grid-template-rows: auto max-content 270px;
+      grid-template-areas:
+        "gallery"
+        "about"
+        "contact";
+    }
+
+    .gallery {
+      padding-bottom: 0;
+    }
+
+    .about {
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .window {
+      left: 5vw;
+      top: 4vw;
+      max-height: calc(100% - 5vw - 5%);
+      max-width: calc(100% - 17vw + 5%);
+    }
+
+    .explorer {
+      left: 10vw;
+      top: 9vw;
+      max-height: calc(100% - 7vw - 5%);
+      max-width: calc(100% - 17vw);
+    }
+  }
+
+  @media (max-width: 430px) {
+    .window {
+      left: 0;
+      top: 10vw;
+      max-height: calc(100% - 15vw - 5%);
+      max-width: 100%;
+    }
+
+    .explorer {
+      left: 2vw;
+      top: 17vw;
+      max-height: calc(100% - 19vw);
+      max-width: calc(100% - 2vw);
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  body {
+    --size: 50px;
+  }
+
+  @media (max-height: 540px) {
+    .gallery {
+      padding-bottom: 0;
+    }
+
+    .about {
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .window {
+      left: 2vw;
+      top: 4vw;
+      max-height: calc(100% - 7vw - 5%);
+      max-width: calc(100% - 17vw + 5%);
+    }
+
+    .explorer {
+      left: 5vw;
+      top: 7vw;
+      max-height: calc(100% - 7vw - 5%);
+      max-width: calc(100% - 6vw);
+    }
+  }
+
+  @media (max-height: 500px) {
+    .window {
+      left: 0;
+      top: 1vw;
+    }
+
+    .explorer {
+      left: 1vw;
+      top: 3vw;
+      max-height: calc(100% - 2vw);
+      max-width: calc(100% - 2vw);
+    }
+
+    .contact__title {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-height: 380px) {
+    .window {
+      display: none;
+    }
+
+    .explorer {
+      grid-template-rows: 30px auto;
+      left: 0.5vw;
+      top: 1vw;
+      max-height: calc(100% - 2vw);
+      max-width: calc(100% - 1vw);
+    }
+
+    .explorer__info {
+      grid-template-rows: 200px max-content;
+      gap: 5px;
+    }
+
+    .gallery {
+      margin-bottom: 0;
+    }
+
+    .gallery__img {
+      --max-size: 180px;
+    }
+  }
+
+  @media (max-height: 300px) {
+    .explorer {
+      left: 0.2vw;
+      top: 0;
+      max-height: calc(100% + 1vw);
+      max-width: calc(100%);
+    }
+
+    .explorer__info {
+      grid-template-rows: 150px max-content;
+      gap: 3px;
+    }
+
+    .gallery__img {
+      --max-size: 130px;
+    }
+  }
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: black;
+  }
+}

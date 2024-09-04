@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,419 +20,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
 
-    <style>
-      :root {
-        --bg-color-body: #eaf7cf;
-        --color1: #ebefbf;
-        --color2: #ceb5a7;
-        --color-font: #92828d;
-        --bg-color-footer: #adaabf;
-        --bg-color-window: #f0ead6;
-        --bg-color-explorer: #90d7ff;
-
-        --border-radius: 5px;
-        font-family: "Josefin Slab", serif;
-      }
-
-      *,
-      *::after,
-      *::before {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        height: 100svh;
-      }
-
-      body {
-        --size: 70px;
-
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: var(--size) auto var(--size);
-        background-color: var(--bg-color-body);
-        color: var(--color-font);
-      }
-
-      a {
-        text-decoration: none;
-        color: var(--color-font);
-        transition: color 0.1s ease-in-out;
-      }
-
-      a:hover {
-        color: black;
-      }
-
-      ul,
-      li {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      p {
-        padding: 0;
-        margin: 0;
-      }
-
-      /* .header {
-
-      } */
-
-      .animated-header {
-        background-color: var(--bg-color-window); /* Цвет фона шапки */
-        padding: 20px;
-        text-align: center;
-        color: #778da9;
-        opacity: 0; /* Начальная прозрачность */
-        transform: translateY(-20px); /* Начальное положение (смещение вверх) */
-        animation: slideIn 2s ease-out forwards; /* Применяем анимацию */
-      }
-
-      @keyframes slideIn {
-        to {
-          opacity: 4; /* Конечная непрозрачность */
-          transform: translateY(
-            0
-          ); /* Конечное положение (восстановление смещения) */
-        }
-      }
-
-      .main {
-        position: relative;
-        display: grid;
-      }
-
-      .main::before {
-        position: absolute;
-        content: "";
-        inset: 0;
-        background-image: url("./img/bg.jpg");
-        background-position: center;
-        background-size: cover;
-        opacity: 0.65;
-        z-index: 50;
-      }
-
-      .main__icon-folder {
-        --size-min: 40px;
-        --size-max: 6vw;
-        --size: 6vw;
-
-        position: absolute;
-        top: 1vw;
-        left: 1vw;
-        background-image: url("./img/folder.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        max-height: var(--size-max);
-        min-height: var(--size-min);
-        height: var(--size);
-        max-width: var(--size-max);
-        min-width: var(--size-min);
-        width: var(--size);
-      }
-
-      .main__icon-folder::before {
-        position: absolute;
-        content: "my project";
-        right: 0;
-        top: 0;
-        bottom: -15px;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: end;
-      }
-
-      .main_icon-internet {
-        --size-min: 40px;
-        --size-max: 6vw;
-        --size: 5vw;
-
-        position: absolute;
-        top: 1vw;
-        left: 9vw;
-        background-image: url("./img/internet.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        max-height: var(--size-max);
-        min-height: var(--size-min);
-        height: var(--size);
-        max-width: var(--size-max);
-        min-width: var(--size-min);
-        width: var(--size);
-      }
-
-      .main_icon-internet::before {
-        position: absolute;
-        content: "Explorer";
-        right: 0;
-        top: 0;
-        bottom: -35px;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: end;
-        border: 1px dashed var(--color-font);
-        border-radius: var(--border-radius);
-        font-size: 1vw;
-        padding-bottom: 3px;
-      }
-
-      .window,
-      .explorer {
-        position: absolute;
-        display: grid;
-        grid-template-rows: 40px auto;
-        grid-template-columns: auto;
-        border-radius: var(--border-radius);
-        width: 100%;
-        height: 100%;
-      }
-
-      .explorer {
-        z-index: 105;
-        left: calc(17vw + 5%);
-        top: 10vw;
-        max-height: calc(100% - 7vw - 10%);
-        max-width: calc(100% - 17vw - 10%);
-        background-color: var(--bg-color-body);
-        border: 5px solid var(--bg-color-explorer);
-        overflow-y: auto;
-      }
-
-      .window {
-        left: calc(17vw - 5%);
-        top: 5vw;
-        z-index: 100;
-        max-height: calc(100% - 5vw - 10%);
-        max-width: calc(100% - 17vw - 5%);
-        border: 5px solid var(--bg-color-footer);
-        background-color: var(--bg-color-window);
-      }
-
-      .window__header,
-      .explorer__header {
-        display: grid;
-        grid-template-rows: 100%;
-        grid-template-columns: minmax(25px, 50px) auto minmax(25px, 50px);
-        align-items: center;
-        justify-items: center;
-        column-gap: 5px;
-      }
-
-      .window__header {
-        background-color: var(--bg-color-footer);
-        color: var(--bg-color-window);
-      }
-
-      .explorer__header {
-        background-color: var(--bg-color-explorer);
-        color: var(--color-font);
-      }
-
-      .explorer__header_icon-internet,
-      .explorer__header_icon-close,
-      .window__header_icon-folder,
-      .window__header_icon-close {
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 60%;
-        width: 60%;
-      }
-
-      .explorer__header_icon-internet {
-        background-image: url("./img/internet.png");
-      }
-
-      .window__header_icon-folder {
-        background-image: url("./img/folder.png");
-      }
-
-      .explorer__header_icon-close,
-      .window__header_icon-close {
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-
-      .explorer__header_icon-close {
-        background-image: url("./img/close.png");
-      }
-
-      .window__header_icon-close {
-        background-image: url("./img/close.png");
-      }
-
-      .explorer__header_title,
-      .window__header_title {
-        justify-self: start;
-      }
-
-      .explorer__info {
-        display: grid;
-        grid-template-columns: 300px auto;
-        grid-template-rows: 270px max-content;
-        grid-template-areas:
-          "gallery about"
-          "contact about";
-        padding: 5px;
-        gap: 10px;
-      }
-
-      .gallery {
-        grid-area: gallery;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 20px;
-      }
-
-      .gallery__img {
-        --max-size: 230px;
-        --size: 100vw;
-        --min-size: 100px;
-
-        max-height: var(--max-size);
-        max-width: var(--max-size);
-        min-height: var(--min-size);
-        min-width: var(--min-size);
-        height: var(--size);
-        width: var(--size);
-
-        border-radius: 50%;
-
-        box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
-          rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
-          rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-      }
-
-      .contact {
-        grid-area: contact;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .contact__title {
-        font-size: 34px;
-        margin-bottom: 10px;
-      }
-
-      .contact__list {
-        --size: 50px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .contact__item {
-        display: flex;
-        align-items: center;
-        position: relative;
-        padding-left: calc(var(--size) + 10px);
-        height: var(--size);
-      }
-
-      .contact__github::before,
-      .contact__telegramm::before {
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        width: var(--size);
-        height: var(--size);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-
-      .contact__github::before {
-        background-image: url("./img/github.svg");
-      }
-
-      .contact__telegramm::before {
-        background-image: url("./img/telegram.svg");
-      }
-
-      .about {
-        --size-row-title: 40px;
-        --size-margin-list-item: 20px;
-
-        grid-area: about;
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows:
-          max-content
-          var(--size-row-title)
-          max-content
-          var(--size-row-title)
-          max-content
-          var(--size-row-title)
-          max-content
-          max-content;
-
-        align-items: center;
-        font-size: 16px;
-        padding-top: 20px;
-
-        row-gap: 3px;
-      }
-
-      .about__i {
-        padding-bottom: 20px;
-      }
-
-      .about__title {
-        font-size: 19px;
-        font-weight: bold;
-      }
-
-      .about__list_feck {
-        padding-bottom: 20px;
-      }
-
-      .about__list_skills-item,
-      .about__list_feck-item {
-        position: relative;
-        padding-left: var(--size-margin-list-item);
-      }
-
-      .about__list_skills-item::before,
-      .about__list_feck-item::before {
-        position: absolute;
-        content: "✔";
-        left: 0;
-        right: 0;
-        width: var(--size-margin-list-item);
-        height: var(--size-margin-list-item);
-      }
-
-      .footer {
-        text-align: center;
-        color: rgb(75, 71, 71);
-        padding: 20px;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: var(--bg-color-footer);
-      }
-    </style>
+    <link rel="stylesheet" href="keyframes.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
   </head>
   <body>
-    <header class="animated-header">
-      <h1>Моё задание 1.4</h1>
+    <header class="header">
+      <h1 class="animated-header">Моё задание 1.4</h1>
+      <div class="header__circle-animation"></div>
     </header>
     <main class="main">
       <section class="window">
@@ -469,8 +68,8 @@
           </div>
           <div class="about">
             <p class="about__i">
-              Я начинающий веб-разработчик со знаниями и опытом работы с HTML, CSS
-              и JavaScript. Моя цель — создавать современные, адаптивные и
+              Я начинающий веб-разработчик со знаниями и опытом работы с HTML,
+              CSS и JavaScript. Моя цель — создавать современные, адаптивные и
               функциональные веб-сайты и приложения, которые предлагают
               пользователям интуитивно понятный и приятный интерфейс
             </p>
@@ -481,7 +80,8 @@
                 доступных веб-страниц.
               </li>
               <li class="about__list_skills-item">
-                CSS: адаптивный дизайн, кроссбраузерная совместимость, анимации, Grid.
+                CSS: адаптивный дизайн, кроссбраузерная совместимость, анимации,
+                Grid.
               </li>
               <li class="about__list_skills-item">
                 JavaScript: динамическое взаимодействие с пользователем,
@@ -519,11 +119,22 @@
       </section>
 
       <!-- Иконки спозиционированные через absolute -->
-      <div class="main__icon-folder"></div>
-      <div class="main_icon-internet"></div>
+      <div class="main__icon_list">
+        <div class="main__icon-folder_container">
+          <div class="main__icon-folder"></div>
+          <div class="main__icon-folder_text">my project</div>
+        </div>
+        <div class="main_icon-internet_container">
+          <div class="main_icon-internet"></div>
+          <div class="main_icon-internet_text">Explorer</div>
+        </div>
+      </div>
     </main>
     <footer class="footer">
-      &copy2024 Postnikova Alla. All rights reserved
+      &copy;2024&nbsp;
+      <a class="footer__link" href="https://github.com/AllaPost" target="_blank"
+        >Postnikova Alla</a
+      >. Все права под космической защитой
     </footer>
   </body>
 </html>

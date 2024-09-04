@@ -1,0 +1,43 @@
+/* NLO */
+@keyframes nlo-rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+  50% {
+    bottom: -15px;
+  }
+  to {
+    transform: rotate(360deg);
+    bottom: 0;
+  }
+}
+
+@keyframes nlo-run {
+  from {
+    left: -10%;
+  }
+
+  25% {
+    left: 25%;
+  }
+
+  50% {
+    left: 50%;
+  }
+
+  75% {
+    left: 75%;
+  }
+
+  to {
+    left: 110%;
+  }
+}
+
+/* HEADER_TITLE */
+@keyframes slideIn {
+  to {
+    opacity: 4; /* Конечная непрозрачность */
+    transform: translateY(0); /* Конечное положение (восстановление смещения) */
+  }
+}

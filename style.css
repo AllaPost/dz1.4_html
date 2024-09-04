@@ -8,7 +8,7 @@
   --bg-color-explorer: #90d7ff;
 
   --border-radius: 5px;
-  font-family: "Josefin Slab", serif;
+  --z-index-main-before: 50;
 }
 
 *,
@@ -19,6 +19,10 @@
 
 html,
 body {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+
   height: 100svh;
 }
 
@@ -38,10 +42,6 @@ a {
   transition: color 0.1s ease-in-out;
 }
 
-a:hover {
-  color: black;
-}
-
 ul,
 li {
   list-style: none;
@@ -54,25 +54,56 @@ p {
   margin: 0;
 }
 
-/* .header {
+h1 {
+  margin: 0;
+}
 
-} */
+.header {
+  position: relative;
+  background-color: var(--bg-color-window); /* Цвет фона шапки */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
 
 .animated-header {
-  background-color: var(--bg-color-window); /* Цвет фона шапки */
-  padding: 20px;
+  padding-top: 7px;
+  font-family: "Caveat", cursive;
   text-align: center;
   color: #778da9;
   opacity: 0; /* Начальная прозрачность */
   transform: translateY(-20px); /* Начальное положение (смещение вверх) */
   animation: slideIn 2s ease-out forwards; /* Применяем анимацию */
+  z-index: 10;
 }
 
-@keyframes slideIn {
-  to {
-    opacity: 4; /* Конечная непрозрачность */
-    transform: translateY(0); /* Конечное положение (восстановление смещения) */
-  }
+.header__circle-animation {
+  position: absolute;
+  left: -10%;
+  bottom: 0;
+  height: calc(var(--size) - 2px);
+  width: calc(var(--size) - 2px);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 5;
+
+  animation-name: nlo-rotate, nlo-run;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 5s;
+}
+
+.header__circle-animation::before {
+  position: absolute;
+  content: "👽";
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  border-radius: 50%;
 }
 
 .main {
@@ -88,77 +119,53 @@ p {
   background-position: center;
   background-size: cover;
   opacity: 0.65;
-  z-index: 50;
+  z-index: var(--z-index-main-before);
 }
 
-.main__icon-folder {
+.main__icon_list {
   --size-min: 40px;
   --size-max: 6vw;
   --size: 6vw;
 
   position: absolute;
+  display: flex;
   top: 1vw;
   left: 1vw;
-  background-image: url("./img/folder.png");
+  gap: 5px;
+
+  /* адаптировали текст */
+  font-size: calc(21px + 24px * ((100vw - 320px) / 1440px));
+}
+
+.main__icon-folder_container,
+.main_icon-internet_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: fit-content;
+  width: clamp(var(--size-min), 12vw, 12vw);
+  padding: 5px;
+  z-index: calc(var(--z-index-main-before) + 5);
+}
+
+.main__icon-folder,
+.main_icon-internet {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  max-height: var(--size-max);
-  min-height: var(--size-min);
-  height: var(--size);
-  max-width: var(--size-max);
-  min-width: var(--size-min);
-  width: var(--size);
+
+  height: clamp(var(--size-min), var(--size), var(--size-max));
+  width: clamp(var(--size-min), var(--size), var(--size-max));
 }
 
-.main__icon-folder::before {
-  position: absolute;
-  content: "my project";
-  right: 0;
-  top: 0;
-  bottom: -15px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: end;
+.main__icon-folder {
+  background-image: url("./img/folder.png");
 }
 
 .main_icon-internet {
-  --size-min: 40px;
-  --size-max: 6vw;
-  --size: 5vw;
-
-  position: absolute;
-  top: 1vw;
-  left: 9vw;
   background-image: url("./img/internet.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  max-height: var(--size-max);
-  min-height: var(--size-min);
-  height: var(--size);
-  max-width: var(--size-max);
-  min-width: var(--size-min);
-  width: var(--size);
-}
-
-.main_icon-internet::before {
-  position: absolute;
-  content: "Explorer";
-  right: 0;
-  top: 0;
-  bottom: -35px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  border: 1px dashed var(--color-font);
-  border-radius: var(--border-radius);
-  font-size: 1vw;
-  padding-bottom: 3px;
 }
 
 .window,
@@ -180,7 +187,6 @@ p {
   max-width: calc(100% - 17vw - 10%);
   background-color: var(--bg-color-body);
   border: 5px solid var(--bg-color-explorer);
-  overflow-y: auto;
 }
 
 .window {
@@ -260,6 +266,7 @@ p {
     "contact about";
   padding: 5px;
   gap: 10px;
+  overflow-y: auto;
 }
 
 .gallery {
@@ -357,8 +364,9 @@ p {
   align-items: center;
   font-size: 16px;
   padding-top: 20px;
-
   row-gap: 3px;
+  font-family: "Josefin Slab", "Ubuntu Mono", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .about__i {
@@ -391,11 +399,20 @@ p {
 }
 
 .footer {
-  text-align: center;
   color: rgb(75, 71, 71);
   padding: 20px;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: var(--bg-color-footer);
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__link {
+  color: rgb(75, 71, 71);
 }
